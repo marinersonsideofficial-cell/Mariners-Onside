@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariners Onside - Passion Finds Its Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Arial Black',Arial,sans-serif;}
+        body{background:#000;color:#fff;line-height:1.6;}
+
+        /* TOP SOCIAL BAR */
+        .top-bar{
+            background:linear-gradient(to bottom,#006400,#008000);
+            padding:14px 0;text-align:center;font-size:16px;font-weight:bold;
+        }
+        .top-bar a{color:#fff;margin:0 18px;font-size:24px;text-decoration:none;transition:.3s;}
+        .top-bar a:hover{color:#00ff00;transform:scale(1.3);}
+        .top-bar span{margin-right:20px;color:#fff;}
+
+        /* HEADER */
+        header{background:#420303;padding:20px 0;text-align:center;}
+        .club-crest{
+            width:110px;height:110px;margin:0 auto 12px;
+            background:url('logo.jpg') center/cover no-repeat;
+            border:6px solid #fff;border-radius:50%;
+            box-shadow:0 0 30px rgba(0,255,0,0.9),inset 0 0 30px rgba(0,0,0,0.5);
+            outline:3px solid #006400;outline-offset:-9px;
+        }
+        .club-name{
+            font-size:42px;font-weight:900;letter-spacing:5px;color:#fff;
+            text-shadow:0 0 15px #fff,3px 3px 0 #006400,6px 6px 0 #000;
+            margin-bottom:6px;
+        }
+        .club-subtitle{
+            font-size:19px;font-weight:bold;letter-spacing:4px;color:white;
+            text-shadow:3px 3px 8px #000;
+        }
+
+        /* NAVIGATION */
+        nav{
+            background:#111;padding:18px 0;text-align:center;position:relative;z-index:1000;
+        }
+        nav a{
+            color:#fff;margin:0 28px;text-decoration:none;font-size:18px;
+            font-weight:bold;text-transform:uppercase;transition:.3s;
+        }
+        nav a:hover{color:#00ff00;text-shadow:0 0 12px #00ff00;}
+
+        /* DROPDOWN */
+        .dropdown{
+            display:inline-block;position:relative;
+        }
+        .dropdown-toggle{
+            display:inline-flex;align-items:center;gap:8px;
+            color:#fff;padding:8px 16px;cursor:pointer;
+            text-decoration:none;
+            border-radius:8px;
+            transition:.3s;
+        }
+        .dropdown-toggle:hover{color:#00ff00;}
+
+        .dropdown-content{
+            display:none;
+            position:absolute;
+            top:100%;left:50%;
+            transform:translateX(-50%);
+            background:rgba(0,0,0,0.98);
+            min-width:240px;
+            border:3px solid #006400;
+            border-radius:12px;
+            box-shadow:0 0 40px rgba(0,255,0,0.7);
+            z-index:9999;
+            padding:12px 0;
+            opacity:0;
+            transition:opacity 0.3s;
+        }
+        .dropdown-content a{
+            display:block;padding:12px 20px;margin:0;
+            font-size:16px;letter-spacing:1px;color:#fff;
+            text-decoration:none;transition:.3s;
+        }
+        .dropdown-content a:hover{
+            background:#006400;color:#fff;
+        }
+
+        /* Show dropdown when active */
+        .dropdown:hover .dropdown-content,
+        .dropdown.active .dropdown-content{
+            display:block;
+            opacity:1;
+        }
+
+        /* HERO SECTION */
+        .hero{
+            min-height:90vh;
+            background:#000;
+            display:flex;flex-direction:column;
+            align-items:center;justify-content:center;
+            padding:40px 20px;
+            text-align:center;
+        }
+
+        .join-banner{
+            background: 
+                linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+                url('t3.jpg') center/cover no-repeat;
+            width:700px;max-width:90%;
+            padding:18px 40px;
+            border-radius:18px;
+            border:4px solid rgba(255,255,255,0.25);
+            box-shadow:0 0 70px rgba(255,0,0,0.8), 0 0 100px rgba(0,255,0,0.6);
+            margin-bottom:60px;
+        }
+        .join-banner h1{
+            font-size:68px;font-weight:900;
+            letter-spacing:8px;color:#fff;
+            text-transform:uppercase;
+            text-shadow:0 0 15px #fff,4px 4px 0 #8B0000,-4px -4px 0 #006400;
+        }
+
+        /* MEMBERSHIP BOXES */
+        .membership-boxes{
+            display:flex;justify-content:center;gap:80px;flex-wrap:wrap;
+        }
+        .box{
+            background:rgba(0,0,0,0.94);padding:38px;border-radius:16px;
+            width:330px;text-align:center;
+            border:3px solid #333;
+            box-shadow:0 0 40px rgba(0,255,0,0.6);
+            transition:0.4s;
+        }
+        .box:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 80px rgba(0,255,0,0.9);
+            border-color:#00ff00;
+        }
+        .box h3{font-size:26px;margin-bottom:16px;color:#ffdd00;}
+        .btn{
+            display:block;width:100%;padding:19px;font-size:22px;
+            font-weight:900;border-radius:12px;margin:18px 0 10px;
+            text-decoration:none;transition:.4s;
+        }
+        .btn-green{background:#006400;color:#fff;border:3px solid #00ff00;}
+        .btn-green:hover{background:#00ff00;color:#000;box-shadow:0 0 35px #00ff00;}
+        .btn-red{background:#8B0000;color:#fff;border:3px solid #ff0000;}
+        .btn-red:hover{background:#ff0000;color:#fff;box-shadow:0 0 35px #ff0000;}
+
+        /* RESPONSIVE */
+        @media (max-width:768px){
+            .join-banner{width:85%;padding:16px 30px;}
+            .join-banner h1{font-size:52px;letter-spacing:5px;}
+            .membership-boxes{gap:50px;}
+            .box{width:90%;}
+            nav a{margin:0 15px;font-size:16px;}
+            .dropdown-toggle{padding:8px 12px;}
+        }
+        @media (max-width:480px){
+            .join-banner{width:92%;padding:14px 20px;}
+            .join-banner h1{font-size:40px;letter-spacing:3px;}
+            .btn{font-size:20px;padding:16px;}
+            nav a{margin:0 10px;font-size:15px;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP SOCIAL BAR -->
+    <div class="top-bar">
+        <span>FOLLOW US</span>
+        <a href="https://www.facebook.com/share/17cesvqNoP/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/MarinersOnside" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/marinersonsideofficial?igsh=MW94ZW03cnVhMnRzbA==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@MarinersOnside" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://t.me/MarinersOnside" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://discord.gg/marinersonside" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="club-crest" aria-hidden="true"></div>
+        <h1 class="club-name">MARINERS ONSIDE</h1>
+        <p class="club-subtitle">Passion finds its home</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="contact-us.html">CONTACT US</a>
+
+        <!-- FIESTA Dropdown -->
+        <div class="dropdown">
+            <a href="fiesta.html" class="dropdown-toggle">
+                FIESTA <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="agm.html">AGM</a>
+                <a href="football.html">FOOTBALL FIESTA</a>
+            </div>
+        </div>
+
+        <!-- MEMORIES Dropdown (NOW FULLY WORKING) -->
+        <div class="dropdown">
+            <a href="memories.html" class="dropdown-toggle">
+                MEMORIES <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="player.html">PLAYERS MEET-UP</a>
+                <a href="social-work.html">SOCIAL WORK</a>
+            </div>
+        </div>
+
+        <a href="gallery.html">MINDFRAMES</a>
+        <a href="test.html">TROPHY ROOM</a>
+        <a href="store.html">STORE</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="join-banner">
+            <h1>JOIN WITH US</h1>
+        </div>
+
+        <div class="membership-boxes">
+            <div class="box">
+                <h3>LADY MARINERS</h3>
+                <a href="#" class="btn btn-green">CLICK HERE</a>
+                <p>FREE MEMBERSHIP</p>
+            </div>
+            <div class="box">
+                <h3>GENERAL MEMBERSHIP</h3>
+                <a href="#" class="btn btn-red">CLICK HERE</a>
+                <p>YEARLY ₹149</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSAL DROPDOWN SCRIPT (Desktop Hover + Mobile Tap) -->
+    <script>
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const content = dropdown.querySelector('.dropdown-content');
+
+            // Desktop: Hover to open
+            dropdown.addEventListener('mouseenter', () => {
+                dropdown.classList.add('active');
+            });
+            dropdown.addEventListener('mouseleave', () => {
+                dropdown.classList.remove('active');
+            });
+
+            // Mobile: Tap to toggle (prevents navigation on first tap)
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const isActive = dropdown.classList.contains('active');
+                    
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+                    
+                    // Toggle current one
+                    if (!isActive) {
+                        dropdown.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Close all dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>

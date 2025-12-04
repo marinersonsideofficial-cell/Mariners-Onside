@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - Mariners Onside</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Arial Black',Arial,sans-serif;}
+        body{background:#000;color:#fff;line-height:1.6;text-align:center;}
+
+        .payment-container{
+            padding:100px 20px;
+            max-width:600px;
+            margin:0 auto;
+        }
+        .payment-container h1{
+            font-size:48px;
+            color:#00ff00;
+            margin-bottom:20px;
+            text-shadow:0 0 15px rgba(0,255,0,0.6);
+        }
+        .payment-container p{
+            font-size:18px;
+            margin-bottom:40px;
+        }
+        .payment-methods{
+            margin-bottom:40px;
+        }
+        .payment-methods label{
+            display:block;
+            margin:10px 0;
+            font-size:20px;
+            cursor:pointer;
+        }
+        .payment-methods input[type="radio"]{
+            margin-right:10px;
+        }
+        .payment-section{
+            display:none;
+            margin-top:40px;
+        }
+        .upi-section .qr-code{
+            width:300px;
+            height:300px;
+            margin:0 auto 20px;
+            border:2px solid #00ff00;
+            border-radius:10px;
+            background:#fff;
+        }
+        .upi-section .qr-code img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+        }
+        .card-section{
+            text-align:left;
+            max-width:400px;
+            margin:0 auto;
+        }
+        .card-section input{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            border:2px solid #00ff00;
+            border-radius:5px;
+            background:#111;
+            color:#fff;
+            font-size:16px;
+        }
+        .card-section button{
+            width:100%;
+            padding:16px;
+            background:#008631;
+            color:#fff;
+            font-size:20px;
+            font-weight:900;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            transition:.3s;
+        }
+        .card-section button:hover{
+            background:#00ff00;
+            color:#000;
+            transform:scale(1.05);
+        }
+        .instructions{
+            font-size:16px;
+            margin-bottom:40px;
+        }
+        .back-btn{
+            display:inline-block;
+            padding:16px 32px;
+            background:#008631;
+            color:#fff;
+            font-size:20px;
+            font-weight:900;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            transition:.3s;
+            text-decoration:none;
+            margin-top:40px;
+        }
+        .back-btn:hover{
+            background:#00ff00;
+            color:#000;
+            transform:scale(1.05);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width:768px){
+            .payment-container h1{font-size:36px;}
+            .upi-section .qr-code{width:250px;height:250px;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <p>Select your payment method below.</p>
+        
+        <div class="payment-methods">
+            <label>
+                <input type="radio" name="payment-method" value="credit-card"> Credit Card
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="debit-card"> Debit Card
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="upi"> UPI
+            </label>
+        </div>
+        
+        <div id="credit-card-section" class="payment-section card-section">
+            <h2>Credit Card Payment</h2>
+            <form>
+                <input type="text" placeholder="Card Number" required>
+                <input type="text" placeholder="Expiry Date (MM/YY)" required>
+                <input type="text" placeholder="CVV" required>
+                <input type="text" placeholder="Cardholder Name" required>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+        
+        <div id="debit-card-section" class="payment-section card-section">
+            <h2>Debit Card Payment</h2>
+            <form>
+                <input type="text" placeholder="Card Number" required>
+                <input type="text" placeholder="Expiry Date (MM/YY)" required>
+                <input type="text" placeholder="CVV" required>
+                <input type="text" placeholder="Cardholder Name" required>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+        
+        <div id="upi-section" class="payment-section upi-section">
+            <h2>UPI Payment</h2>
+            <p>Scan the QR code below to make your payment securely.</p>
+            <div class="qr-code">
+                <img src="qr.jpg" alt="Payment QR Code"> <!-- Replace with actual QR code image or generate dynamically -->
+            </div>
+            <div class="instructions">
+                <p>Use your preferred UPI app (e.g., Google Pay, PhonePe, Paytm) to scan and pay.</p>
+                <p>After payment, send a screenshot to our support for confirmation.</p>
+            </div>
+        </div>
+        
+        <a href="store.html" class="back-btn">Back to Store</a>
+    </div>
+
+    <script>
+        const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+        const sections = {
+            'credit-card': document.getElementById('credit-card-section'),
+            'debit-card': document.getElementById('debit-card-section'),
+            'upi': document.getElementById('upi-section')
+        };
+
+        paymentMethods.forEach(method => {
+            method.addEventListener('change', function() {
+                // Hide all sections
+                Object.values(sections).forEach(section => section.style.display = 'none');
+                // Show selected section
+                if (sections[this.value]) {
+                    sections[this.value].style.display = 'block';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

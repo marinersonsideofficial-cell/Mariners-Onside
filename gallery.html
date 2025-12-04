@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memories - Photo Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, maroon 0%, #006400 50%, maroon 100%);
+      min-height: 100vh;
+      color: white; /* Makes all default text white */
+    }
+
+    /* Main Heading */
+    h1 {
+      text-align: center;
+      font-size: 3.5rem;
+      margin: 60px 20px 10px;
+      color: white;           /* White heading */
+      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #f0f0f0;         /* Slightly lighter white */
+      margin-bottom: 60px;
+      font-weight: 300;
+    }
+
+    .zigzag-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .zigzag-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 120px;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .zigzag-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .zigzag-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .zigzag-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.2);
+    }
+
+    .zigzag-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .zigzag-text h2 {
+      margin-top: 0;
+      font-size: 2.4rem;
+      color: white;           /* White titles */
+      text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    }
+
+    .zigzag-text p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #efefef;         /* Soft white for paragraphs */
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      .zigzag-item,
+      .zigzag-item:nth-child(even) {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      .zigzag-item { margin-bottom: 80px; gap: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Memories</h1>
+  <p class="subtitle">Moments that stay with us forever</p>
+
+  <div class="zigzag-container">
+
+    <!-- Item 1 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t1.jpg" alt="Memory 1">
+      </div>
+      <div class="zigzag-text">
+        <h2>Tribute to Ratan Tata Sir In Vybk</h2>
+        <p>The day everything changed. Those tiny shoes on the wooden floor still bring tears of joy.</p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t2.JPG" alt="Memory 2">
+      </div>
+      <div class="zigzag-text">
+        <h2>Mariners On Ahal Match</h2>
+        <p>Under the old oak tree, surrounded by everyone we love. The best yes of our lives.</p>
+      </div>
+    </div>
+
+    <!-- Add as many as you want -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t3.JPG" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <!--<div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t4.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t5.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t6.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t7.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t8.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t9.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t10.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t11.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t12.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t13.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t14.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t15.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t16.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t17.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t18.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>
+
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t19.jpg" alt="Memory 3">
+      </div>
+      <div class="zigzag-text">
+        <h2>We are together</h2>
+        <p>Endless laughter, sandy toes, and the sound of waves — pure happiness captured forever.</p>
+      </div>
+    </div>-->
+
+  </div>
+
+</body>
+</html>
